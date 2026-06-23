@@ -1,36 +1,40 @@
-This is a [Next.js](https://nextjs.org) project bootstrapped with [`create-next-app`](https://nextjs.org/docs/app/api-reference/cli/create-next-app).
+# 记账应用 (Account Book)
 
-## Getting Started
+Next.js + Prisma 实战教学项目
 
-First, run the development server:
+## 课前准备
+
+### 1. 配置数据库连接
+
+1. 注册 [Neon](https://neon.tech) 免费账号
+2. 创建项目，获取 Connection string
+3. "cp env.example .env", 编辑 `.env` 文件，替换 `DATABASE_URL` 为你的连接串
+
+### 2. 安装依赖
 
 ```bash
-npm run dev
-# or
-yarn dev
-# or
-pnpm dev
-# or
-bun dev
+npm install
 ```
 
-Open [http://localhost:3000](http://localhost:3000) with your browser to see the result.
+### 3. 生成 Prisma 客户端
 
-You can start editing the page by modifying `app/page.tsx`. The page auto-updates as you edit the file.
+```bash
+npx prisma generate
+```
 
-This project uses [`next/font`](https://nextjs.org/docs/app/building-your-application/optimizing/fonts) to automatically optimize and load [Geist](https://vercel.com/font), a new font family for Vercel.
+## 常用命令
 
-## Learn More
+| 命令 | 说明 |
+|------|------|
+| `npx prisma studio` | 打开可视化数据库管理界面 |
+| `npx prisma migrate dev` | 创建数据库迁移 |
+| `npx prisma db push` | 将 Schema 同步到数据库 |
+| `npx prisma generate` | 生成 Prisma 客户端 |
 
-To learn more about Next.js, take a look at the following resources:
+## 课程学习路径
 
-- [Next.js Documentation](https://nextjs.org/docs) - learn about Next.js features and API.
-- [Learn Next.js](https://nextjs.org/learn) - an interactive Next.js tutorial.
-
-You can check out [the Next.js GitHub repository](https://github.com/vercel/next.js) - your feedback and contributions are welcome!
-
-## Deploy on Vercel
-
-The easiest way to deploy your Next.js app is to use the [Vercel Platform](https://vercel.com/new?utm_medium=default-template&filter=next.js&utm_source=create-next-app&utm_campaign=create-next-app-readme) from the creators of Next.js.
-
-Check out our [Next.js deployment documentation](https://nextjs.org/docs/app/building-your-application/deploying) for more details.
+1. **选型分析**：使用「5问选型法」确定数据库类型
+2. **模型设计**：用自然语言描述需求，AI 生成 Prisma Schema
+3. **数据同步**：执行迁移，将模型同步到 Neon 数据库
+4. **增删改查**：通过 Prisma Studio 或 API 操作数据
+5. **报错排查**：掌握常见错误的解决方法
